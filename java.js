@@ -3,27 +3,31 @@ const btn = document.getElementById('btn');
 const gridDisplay = document.getElementById('displayGridNumber');
 let firstGrid = 0;
 
-// ------------------------ creates divs
-btn.addEventListener('click', function(gridDivs) {
+// ------------------------ creates divs button
+btn.addEventListener('click', function() {
   
-  if(firstGrid === 0) {
-    const divNumber = document.getElementById('divNumber').value;
-    createDivs(divNumber);
+  const userInput = document.getElementById('userInput').value;
+//       unnecessary this but im keeping it just in case
+  if(userInput > 100){ //
+    alert("Maximu pixels is 100");// unnecessary but im keeping it for failsafe
+  } //
+
+  if(firstGrid === 0 && userInput < 100) {
+    createDivs(userInput);
     firstGrid++
   }
   
-  else {
+  if(userInput < 100) {
     const removeDivs = document.querySelectorAll('div.pixels');
     removeDivs.forEach(removeDivs => {
       workspace.removeChild(removeDivs)
-      const divNumber = document.getElementById('divNumber').value;
-      createDivs(divNumber);
     })
+    createDivs(userInput);
   }
 })
-
-function createDivs (divNumber){
-  for (let i = 0; i < divNumber; i++) {
+// ---------------------function that makes the grids
+function createDivs (userInput){
+  for (let i = 0; i < (userInput * userInput); i++) {
     const divs = document.createElement('div');
     divs.classList.add('pixels')
     workspace.appendChild(divs);
@@ -38,7 +42,7 @@ function createDivs (divNumber){
 }
 //---------------------display grid numbers
 
-divNumber.addEventListener('input', updateValue);
+userInput.addEventListener('input', updateValue);
 
 function updateValue(e) {
   gridDisplay.textContent = `Your grid is ${e.target.value} x ${e.target.value}`;
