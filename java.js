@@ -32,11 +32,15 @@ function createDivs (userInput){
     divs.classList.add('pixels')
     workspace.appendChild(divs);
   }
+  // ---------------------grid div placement
+
+  workspace.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
+  workspace.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
   // --------------------coloring grids
-  const gridDivs = document.querySelectorAll('div.pixels');
+const gridDivs = document.querySelectorAll('div.pixels');
   gridDivs.forEach(gridDivs => {
     gridDivs.addEventListener('click', function(){
-      gridDivs.style.backgroundColor = 'white';
+    gridDivs.style.backgroundColor = 'black';
     })
   })
 }
@@ -47,7 +51,5 @@ userInput.addEventListener('input', updateValue);
 function updateValue(e) {
   gridDisplay.textContent = `Your grid is ${e.target.value} x ${e.target.value}`;
 }
-
-
 
   

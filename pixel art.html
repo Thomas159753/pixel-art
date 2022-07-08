@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- font end -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="java.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Art</title>
-    <link rel="icon" href="pixel-art/images/logo.png">
+    <link rel="icon" href="images/logo.png">
 </head>
 <body>
+    <div id="head">
     <input type="text" id="userInput" placeholder="Maximum pixels is 100" maxlength="2">
-    <button id="btn">create</button>
+    <button id="btn">CREATE</button>
+    </div>
+
+    <div id="text">
     <p id="displayGridNumber"></p>
-    <div id="workspace"></div>
+    </div>
+
+    
+    <div id="mainDiv">
+        <div id="buttons">
+            <button id="pencil">&#9998;</button>
+        </div>
+            <div id="workspace"></div>
+    </div>
 </body>
 </html>

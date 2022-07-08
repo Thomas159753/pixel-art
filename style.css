@@ -1,9 +1,116 @@
-#workspace {
-    display: grid;
-grid-template-columns: repeat(16, 20px);
-grid-template-rows: repeat(16, 20px);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+body {
+    background-image: url("images/background.jpg");
 }
 
-.pixels{
-    background-color: black;
+#head {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
 }
+
+/* text area */
+#displayGridNumber {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#text {
+    display: flex;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+/* text area end */
+
+/* text input */
+#userInput {
+    width: 180;
+    height: 40px;
+    border: solid 2px;
+    border-color: black;
+    box-shadow: 0 2px 4px darkslategray;
+    border-radius: 5px;
+}
+/* text input end */
+
+
+/* workspace */
+#workspace {
+    box-shadow: 0 2px 40px darkslategray;
+    background-color: white;
+    width: 600px;
+    height: 600px;
+    display: grid;
+}
+/* end of workspace */
+
+/* create grids button */
+
+#btn{
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+    background-color: black;
+    box-shadow: 0 2px 4px darkslategray;
+    border-radius: 5px;
+    border: none;
+    font-size: 19px;
+    letter-spacing: 1px;
+    height: 45px;
+    width: 120px;
+  }
+
+  #btn:active {
+    background-color:white;
+    color: black;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+  /* create grids btn end */
+
+  /* pencil button */
+  #pencil {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 31px;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 70%;
+  }
+
+#pencil:active {
+    background-color:white;
+    color: black;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+  
+  /* main area */
+  #mainDiv {
+    display: flex;
+    justify-content: center;
+  }
+/* butons */
+  #buttons {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+  }
+
+
+  /* main area end */
+
+  /* pencil button end */
+
+/* .pixels{
+    background-color: black;
+} */
