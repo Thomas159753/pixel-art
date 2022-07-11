@@ -24,7 +24,6 @@ body {
     margin-left: 30px;
     margin-top: 5px;
 }
-/* text area end */
 
 /* text input */
 #userInput {
@@ -35,7 +34,6 @@ body {
     box-shadow: 0 2px 4px darkslategray;
     border-radius: 5px;
 }
-/* text input end */
 
 
 /* workspace */
@@ -46,7 +44,6 @@ body {
     height: 600px;
     display: grid;
 }
-/* end of workspace */
 
 /* create grids button */
 
@@ -94,6 +91,27 @@ body {
     transform: translateY(2px);
   }
   
+/* eraser button */
+  #eraser {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 31px;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 70%;
+  }
+
+#eraser:active {
+    background-color:white;
+    color: black;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+
   /* main area */
   #mainDiv {
     display: flex;
@@ -102,7 +120,9 @@ body {
 /* butons */
   #buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    gap: 35px;
     width: 150px;
   }
 
