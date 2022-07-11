@@ -1,6 +1,8 @@
 const workspace = document.getElementById('workspace');
 const btn = document.getElementById('btn');
 const gridDisplay = document.getElementById('displayGridNumber');
+const pencil = document.getElementById('pencil');
+const eraser = document.getElementById('eraser');
 let firstGrid = 0;
 
 // ------------------------ creates divs button
@@ -37,12 +39,24 @@ function createDivs (userInput){
   workspace.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
   workspace.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
   // --------------------coloring grids
+
+  pencil.addEventListener('click', function(){;
+
 const gridDivs = document.querySelectorAll('div.pixels');
   gridDivs.forEach(gridDivs => {
     gridDivs.addEventListener('click', function(){
     gridDivs.style.backgroundColor = 'black';
     })
-  })
+  })})
+
+  eraser.addEventListener('click', function(){;
+
+    const gridDivs = document.querySelectorAll('div.pixels');
+      gridDivs.forEach(gridDivs => {
+        gridDivs.addEventListener('click', function(){
+        gridDivs.style.backgroundColor = 'white';
+        })
+      })})
 }
 //---------------------display grid numbers
 

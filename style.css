@@ -71,7 +71,14 @@ body {
     box-shadow: 0 0 2px darkslategray;
     transform: translateY(2px);
   }
-  /* create grids btn end */
+
+  /* color button */
+
+#colorpicker{
+  height: 70px;
+  width: 70px;
+  border-radius: 70%;
+}
 
   /* pencil button */
   #pencil {
