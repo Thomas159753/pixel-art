@@ -39,13 +39,13 @@ function createDivs (userInput){
   workspace.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
   workspace.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
   // --------------------coloring grids
-
+ 
   pencil.addEventListener('click', function(){;
 
-const gridDivs = document.querySelectorAll('div.pixels');
-  gridDivs.forEach(gridDivs => {
+    const gridDivs = document.querySelectorAll('div.pixels');
+    gridDivs.forEach(gridDivs => {
     gridDivs.addEventListener('click', function(){
-    gridDivs.style.backgroundColor = 'black';
+    gridDivs.style.backgroundColor = document.getElementById('colorpicker').value
     })
   })})
 
