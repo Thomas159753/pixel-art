@@ -3,13 +3,25 @@ const btn = document.getElementById('btn');
 const gridDisplay = document.getElementById('displayGridNumber');
 const pencil = document.getElementById('pencil');
 const eraser = document.getElementById('eraser');
+const shadingButton = document.querySelector("#checkbox");
 let firstGrid = 0;
+let shading = false;
+
+// ------------------------- shadinmg toggle button
+shadingButton.addEventListener('click', function(){
+  if (shading === false ) {
+  shading = true;
+  }
+  else {
+  shading = false;
+  }
+})
 
 // ------------------------ creates divs button
 btn.addEventListener('click', function() {
   
   const userInput = document.getElementById('userInput').value;
-//       unnecessary this but im keeping it just in case
+  //   unnecessary this but im keeping it just in case
   if(userInput > 100){ //
     alert("Maximu pixels is 100");// unnecessary but im keeping it for failsafe
   } //
@@ -42,21 +54,34 @@ function createDivs (userInput){
  
   pencil.addEventListener('click', function(){;
 
-    const gridDivs = document.querySelectorAll('div.pixels');
-    gridDivs.forEach(gridDivs => {
-    gridDivs.addEventListener('click', function(){
-    gridDivs.style.backgroundColor = document.getElementById('colorpicker').value
-    })
-  })})
+    if(shading == true) {
+      
+      const gridDivs = document.querySelectorAll('div.pixels');
+      gridDivs.forEach(gridDivs => {
+        gridDivs.addEventListener('click', function(){
+        gridDivs.style.backgroundColor = 'red';
+        })
+      })
+    }
+    
+    else{
+      const gridDivs = document.querySelectorAll('div.pixels');
+      gridDivs.forEach(gridDivs => {
+        gridDivs.addEventListener('click', function(){
+        gridDivs.style.backgroundColor = document.getElementById('colorpicker').value
+        })
+      })
+    } 
+  })
 
-  eraser.addEventListener('click', function(){;
-
-    const gridDivs = document.querySelectorAll('div.pixels');
+    eraser.addEventListener('click', function(){;
+      const gridDivs = document.querySelectorAll('div.pixels');
       gridDivs.forEach(gridDivs => {
         gridDivs.addEventListener('click', function(){
         gridDivs.style.backgroundColor = 'white';
         })
-      })})
+      })
+    })
 }
 //---------------------display grid numbers
 
