@@ -6,7 +6,16 @@ const eraser = document.getElementById('eraser');
 const shadingButton = document.querySelector("#checkbox");
 let firstGrid = 0;
 let shading = false;
-let usermode = 'colorMode';
+let usermode = 'pencil';
+// buttons seting modes
+
+pencil.addEventListener('click', function(){
+  usermode = 'pencil'
+})
+
+eraser.addEventListener('click', function(){
+  usermode = 'eraser'
+})
 
 btn.addEventListener('click', function() {
   
@@ -26,7 +35,8 @@ btn.addEventListener('click', function() {
     createDivs(userInput);
   }
 })
-// --create divs gunction
+
+// --create divs faction
 function createDivs (userInput){
   for (let i = 0; i < (userInput * userInput); i++) {
     const divs = document.createElement('div');
@@ -38,14 +48,24 @@ function createDivs (userInput){
   const gridDivs = document.querySelectorAll('.pixels');
   gridDivs.forEach(gridDivs => {
     gridDivs.addEventListener('click', coloring)});
-
 }
+
+// coloring function
+
 function coloring(){
-  
-    this.style.backgroundColor = document.getElementById('colorpicker').value;
-    console.log(usermode);
+  if(usermode === 'pencil'){  
+  this.style.backgroundColor = document.getElementById('colorpicker').value;
+  console.log(usermode);}
 
+  else if(usermode === 'eraser'){
+    this.style.backgroundColor = 'white';
+  }
+}
+// display grid numbers
+userInput.addEventListener('input', updateValue);
 
+function updateValue(e) {
+  gridDisplay.textContent = `Your grid is ${e.target.value} x ${e.target.value}`;
 }
 //gridDivs.forEach(gridDivs => {
 //gridDivs.addEventListener('click', coloring(pencil, eraser))})
