@@ -11,12 +11,14 @@ let usermode = 'pencil';
 
 pencil.addEventListener('click', function(){
   usermode = 'pencil'
+  coloring();
 })
 
 eraser.addEventListener('click', function(){
   usermode = 'eraser'
+  coloring();
 })
-
+// create button
 btn.addEventListener('click', function() {
   
   const userInput = document.getElementById('userInput').value;
@@ -36,7 +38,26 @@ btn.addEventListener('click', function() {
   }
 })
 
-// --create divs faction
+// display grid numbers
+
+userInput.addEventListener('input', updateValue);
+
+function updateValue(e) {
+  gridDisplay.textContent = `Your grid is ${e.target.value} x ${e.target.value}`;
+}
+
+// shading toggle button
+shadingButton.addEventListener('click', function(){
+  if (shading === false ) {
+  shading = true;
+  usermode = 'shading';
+  }
+  else {
+  shading = false;
+  usermode = 'pencil'
+  }
+})
+// create divs faction
 function createDivs (userInput){
   for (let i = 0; i < (userInput * userInput); i++) {
     const divs = document.createElement('div');
@@ -45,35 +66,34 @@ function createDivs (userInput){
   }
   workspace.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
   workspace.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
-  const gridDivs = document.querySelectorAll('.pixels');
-  gridDivs.forEach(gridDivs => {
-    gridDivs.addEventListener('click', coloring)});
 }
 
 // coloring function
 
 function coloring(){
-  if(usermode === 'pencil'){  
-  this.style.backgroundColor = document.getElementById('colorpicker').value;
-  console.log(usermode);}
+  const gridDivs = document.querySelectorAll('.pixels');
 
-  else if(usermode === 'eraser'){
-    this.style.backgroundColor = 'white';
-  }
-}
-// display grid numbers
-userInput.addEventListener('input', updateValue);
+  gridDivs.forEach((divs) => {
+    divs.count = 0;
+    divs.addEventListener('click', (e) =>{
 
-function updateValue(e) {
-  gridDisplay.textContent = `Your grid is ${e.target.value} x ${e.target.value}`;
+      if(usermode === 'pencil'){  
+        //this.style.opacity = '1';
+        e.target.style.backgroundColor = document.getElementById('colorpicker').value;
+      }
+      
+      else if(usermode === 'eraser'){
+        //this.style.opacity = '1';
+        e.target.style.backgroundColor = 'white';
+      }
+    
+      else if(usermode === 'shading'){
+        e.target.style.backgroundColor = '#707070';
+        e.target.count += 1;
+        e.target.style.opacity = 0.2 * e.target.count;
+      }
+    })
+  })
 }
 //gridDivs.forEach(gridDivs => {
 //gridDivs.addEventListener('click', coloring(pencil, eraser))})
-
-
-
-
-
-
-
-
