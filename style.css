@@ -170,3 +170,26 @@ color: white;
 box-shadow: 0 0 2px darkslategray;
 transform: translateY(2px);
 }
+
+/* rainbow */
+#rainbow {
+  padding: 0;
+  font-size: 31px;
+  background-color: black;
+  background-image: linear-gradient(to right, red, yellow);
+  color: black;
+  border: none;
+  height: 70px;
+  width: 70px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 70%;
+  }
+  
+  #rainbow:active {
+  background-color:white;
+  color: white;
+  box-shadow: 0 0 2px darkslategray;
+  transform: translateY(2px);
+  }

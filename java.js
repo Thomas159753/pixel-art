@@ -4,6 +4,7 @@ const gridDisplay = document.getElementById('displayGridNumber');
 const pencil = document.getElementById('pencil');
 const eraser = document.getElementById('eraser');
 const shadingButton = document.querySelector("#checkbox");
+const Rbow = document.getElementById('rainbow')
 let firstGrid = 0;
 let usermode = 'pencil';
 
@@ -21,6 +22,11 @@ eraser.addEventListener('click', function(){
 
 shadingButton.addEventListener('click', function(){
   usermode = 'shading';
+  coloring();
+})
+
+Rbow.addEventListener('click', function(){
+  usermode = 'rainbow';
   coloring();
 })
 
@@ -73,19 +79,26 @@ function coloring(){
     divs.addEventListener('click', (e) =>{
 
       if(usermode === 'pencil'){  
-        //this.style.opacity = '1';
+        e.target.style.opacity = '1';
         e.target.style.backgroundColor = document.getElementById('colorpicker').value;
       }
       
       else if(usermode === 'eraser'){
-        //this.style.opacity = '1';
-        e.target.style.backgroundColor = 'white';
+        e.target.style.opacity = '1';
+        e.target.style.backgroundColor ='white';
       }
     
       else if(usermode === 'shading'){
         e.target.style.backgroundColor = '#707070';
         e.target.count += 1;
         e.target.style.opacity = 0.2 * e.target.count;
+      }
+
+      else if(usermode === 'rainbow'){
+        let R = rainbowGenerator();
+        let G = rainbowGenerator();
+        let B = rainbowGenerator();
+        e.target.style.backgroundColor = 'rgb(' + R + ',' + G + ',' + B + ')';
       }
     })
   })
@@ -98,14 +111,6 @@ function rainbowGenerator() {
     numberArray[i] = number;
    }
   let randomColour = Math.floor(Math.random() * numberArray.length);
-  console.log(randomColour);
+  return randomColour;
   }
-  rainbowGenerator();
-// function rainbow(){
-//   red.from({length: 256}, (x, i) => i);
-//   const randomRed = Math.floor(Math.random() * red.length);
-//   console.log(randomRed);
-// }
-// rainbow();
-//gridDivs.forEach(gridDivs => {
-//gridDivs.addEventListener('click', coloring(pencil, eraser))})
+  // rainbowGenerator();
