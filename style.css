@@ -149,7 +149,7 @@ body {
 }
 
 /* shading */
-#checkbox {
+/* #checkbox {
 padding: 0;
 font-size: 31px;
 background-color: black;
@@ -169,7 +169,7 @@ background-color:white;
 color: white;
 box-shadow: 0 0 2px darkslategray;
 transform: translateY(2px);
-}
+} */
 
 /* rainbow */
 #rainbow {
